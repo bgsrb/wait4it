@@ -3,7 +3,7 @@ package rabbitmq
 import (
 	"errors"
 	"fmt"
-	"wait4it/model"
+	"wait4it/config"
 
 	"github.com/streadway/amqp"
 )
@@ -18,7 +18,7 @@ type RabbitChecker struct {
 	conString string
 }
 
-func (rc *RabbitChecker) BuildContext(cx model.CheckContext) {
+func (rc *RabbitChecker) BuildContext(cx config.CheckContext) {
 	rc.Host = cx.Host
 	rc.Port = cx.Port
 	rc.Username = cx.Username

@@ -1,12 +1,12 @@
-package envParser
+package config
 
 import (
 	"os"
 	"strconv"
-	"wait4it/model"
 )
 
-func Parse(ctx *model.CheckContext) *model.CheckContext {
+//ParseEnv ...
+func ParseEnv(ctx *CheckContext) *CheckContext {
 	ctx.Config.CheckType = os.Getenv("W4IT_TYPE")
 	ctx.Config.Timeout, _ = strconv.Atoi(os.Getenv("W4IT_TIMEOUT"))
 	ctx.Host = os.Getenv("W4IT_HOST")

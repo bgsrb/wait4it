@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"time"
-	"wait4it/model"
+	"wait4it/config"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -24,7 +24,7 @@ type MongoDbChecker struct {
 const WaitTimeOutSeconds = 2
 
 //BuildContext ...
-func (ch *MongoDbChecker) BuildContext(cx model.CheckContext) {
+func (ch *MongoDbChecker) BuildContext(cx config.CheckContext) {
 	ch.Port = cx.Port
 	ch.Host = cx.Host
 	ch.Username = cx.Username

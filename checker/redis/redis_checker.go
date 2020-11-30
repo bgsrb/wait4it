@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-	"wait4it/model"
+	"wait4it/config"
 
 	client "github.com/go-redis/redis/v8"
 )
@@ -25,7 +25,7 @@ type RedisChecker struct {
 }
 
 //BuildContext ...
-func (ch *RedisChecker) BuildContext(cx model.CheckContext) {
+func (ch *RedisChecker) BuildContext(cx config.CheckContext) {
 	ch.Host = cx.Host
 	ch.Port = cx.Port
 	ch.Password = cx.Password

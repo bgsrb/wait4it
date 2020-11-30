@@ -3,7 +3,7 @@ package elasticsearch
 import (
 	"errors"
 	"strconv"
-	"wait4it/model"
+	"wait4it/config"
 
 	client "github.com/elastic/go-elasticsearch/v8"
 )
@@ -17,7 +17,7 @@ type ElasticSearchChecker struct {
 }
 
 //BuildContext ...
-func (ch *ElasticSearchChecker) BuildContext(cx model.CheckContext) {
+func (ch *ElasticSearchChecker) BuildContext(cx config.CheckContext) {
 	ch.Host = cx.Host
 	ch.Port = cx.Port
 	ch.Username = cx.Username

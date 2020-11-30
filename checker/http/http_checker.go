@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"wait4it/model"
+	"wait4it/config"
 )
 
 //HttpChecker ...
@@ -17,7 +17,7 @@ type HttpChecker struct {
 }
 
 //BuildContext ...
-func (ch *HttpChecker) BuildContext(cx model.CheckContext) {
+func (ch *HttpChecker) BuildContext(cx config.CheckContext) {
 	ch.Url = cx.Host
 	ch.Status = cx.HttpConf.StatusCode
 	if len(cx.HttpConf.Text) > 0 {

@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"wait4it/model"
+	"wait4it/config"
 
 	_ "github.com/lib/pq"
 )
@@ -20,7 +20,7 @@ type PostgreSQLChecker struct {
 }
 
 //BuildContext...
-func (ch *PostgreSQLChecker) BuildContext(cx model.CheckContext) {
+func (ch *PostgreSQLChecker) BuildContext(cx config.CheckContext) {
 	ch.Port = cx.Port
 	ch.Host = cx.Host
 	ch.Username = cx.Username

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"net"
-	"wait4it/model"
+	"wait4it/config"
 )
 
 const (
@@ -19,7 +19,7 @@ type TCPChecker struct {
 }
 
 //BuildContext ...
-func (ch *TCPChecker) BuildContext(cx model.CheckContext) {
+func (ch *TCPChecker) BuildContext(cx config.CheckContext) {
 	ch.Addr = cx.Host
 	ch.Port = cx.Port
 }

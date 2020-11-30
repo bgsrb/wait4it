@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"strconv"
-	"wait4it/model"
+	"wait4it/config"
 
 	"github.com/go-sql-driver/mysql"
 	_ "github.com/go-sql-driver/mysql"
@@ -22,7 +22,7 @@ type MySQLChecker struct {
 }
 
 //BuildContext...
-func (ch *MySQLChecker) BuildContext(cx model.CheckContext) {
+func (ch *MySQLChecker) BuildContext(cx config.CheckContext) {
 	ch.Port = cx.Port
 	ch.Host = cx.Host
 	ch.Username = cx.Username

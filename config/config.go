@@ -1,5 +1,11 @@
-package model
+package config
 
+//Parse ...
+func Parse() CheckContext {
+	return *ParseEnv(ParseFlag(&CheckContext{}))
+}
+
+//CheckContext ...
 type CheckContext struct {
 	Config       ConfigurationContext
 	Host         string
@@ -11,15 +17,19 @@ type CheckContext struct {
 	HttpConf     HttpSpecificConf
 }
 
+//ConfigurationContext ...
 type ConfigurationContext struct {
 	CheckType string
 	Timeout   int
 }
 
+//DatabaseSpecificConf ...
 type DatabaseSpecificConf struct {
 	SSLMode       string
 	OperationMode string
 }
+
+//HttpSpecificConf ...
 type HttpSpecificConf struct {
 	StatusCode int
 	Text       string

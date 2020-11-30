@@ -1,12 +1,12 @@
 package checker
 
 import (
-	"wait4it/model"
+	"wait4it/config"
 )
 
 //Checker ...
 type Checker interface {
-	BuildContext(cx model.CheckContext)
+	BuildContext(cx config.CheckContext)
 	Validate() error
 	Check() (bool, bool, error)
 }

@@ -2,7 +2,7 @@ package aerospike
 
 import (
 	"errors"
-	"wait4it/model"
+	"wait4it/config"
 
 	client "github.com/aerospike/aerospike-client-go"
 )
@@ -14,7 +14,7 @@ type AerospikeChecker struct {
 }
 
 //BuildContext ...
-func (ch *AerospikeChecker) BuildContext(cx model.CheckContext) {
+func (ch *AerospikeChecker) BuildContext(cx config.CheckContext) {
 	ch.Host = cx.Host
 	ch.Port = cx.Port
 }

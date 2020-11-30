@@ -3,7 +3,7 @@ package memcached
 import (
 	"errors"
 	"strconv"
-	"wait4it/model"
+	"wait4it/config"
 
 	client "github.com/bradfitz/gomemcache/memcache"
 )
@@ -15,7 +15,7 @@ type MemcachedChecker struct {
 }
 
 //BuildContext ...
-func (ch *MemcachedChecker) BuildContext(cx model.CheckContext) {
+func (ch *MemcachedChecker) BuildContext(cx config.CheckContext) {
 	ch.Host = cx.Host
 	ch.Port = cx.Port
 }

@@ -1,11 +1,11 @@
-package flagParser
+package config
 
 import (
 	"flag"
-	"wait4it/model"
 )
 
-func Parse(ctx *model.CheckContext) *model.CheckContext {
+//ParseFlag ...
+func ParseFlag(ctx *CheckContext) *CheckContext {
 	checkType := flag.String("type", "tcp", "define the type of check")
 	timeout := flag.Int("t", 30, "Timeout, amount of time wait4it waits for the port in seconds")
 	host := flag.String("h", "127.0.0.1", "IP of the host you want to test against")
