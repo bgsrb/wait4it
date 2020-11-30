@@ -1,10 +1,12 @@
-package cmd
+package main
 
 import (
 	"errors"
 	"fmt"
 	"os"
 	"time"
+	"wait4it/inputParser/envParser"
+	"wait4it/inputParser/flagParser"
 	"wait4it/model"
 )
 
@@ -41,7 +43,7 @@ func RunCheck(c model.CheckContext) {
 }
 
 func findCheckModule(ct string) (interface{}, error) {
-	m, ok := cm[ct]
+	m, ok := modules[ct]
 	if !ok {
 		return nil, errors.New("unsupported check type")
 	}
@@ -68,4 +70,24 @@ func check(cs model.CheckInterface) {
 	}
 
 	wStdOut(r)
+}
+
+func wStdOut(r bool) {
+	if r {
+		_, _ = fmt.Fprintln(os.Stdout, "succeed")
+		os.Exit(0)
+	} else {
+		_, _ = fmt.Fprint(os.Stdout, ".")
+	}
+}
+
+func wStdErr(a ...interface{}) {
+	_, _ = fmt.Fprintln(os.Stderr, a...)
+}
+
+func main() {
+	c := &model.CheckContext{}
+	c = envParser.Parse(c)
+	c = flagParser.Parse(c)
+	RunCheck(*c)
 }
